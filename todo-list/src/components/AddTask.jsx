@@ -4,24 +4,28 @@ import { addTask } from '../redux/actions';
 
 const AddTask = () => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [priority, setPriority] = useState('');
+  const [task, setTask] = useState({
+    title: '',
+    description: '',
+    priority: 'normale', // Assurez-vous que la valeur par défaut est 'normale'
+    status: 'En cours', // Assurez-vous que la valeur par défaut est 'En cours'
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask = {
-      title,
-      description,
-      priority,
-      status: 'En-cours',
-      id: Date.now(), // This is a simple way to generate a unique ID
-    };
-    dispatch(addTask(newTask));
-    // Reset form fields after submission
-    setTitle('');
-    setDescription('');
-    setPriority('');
+    // Générez l'ID en tant que chaîne de caractères
+    const taskId = Date.now().toString();
+    
+    // Dispatch l'action addTask avec les données du formulaire et l'ID généré
+    dispatch(addTask({ ...task, id: taskId }));
+    
+    // Réinitialiser le formulaire après l'ajout de la tâche
+    setTask({
+      title: '',
+      description: '',
+      priority: 'normale',
+      status: 'En cours',
+    });
   };
 
   return (
@@ -31,19 +35,19 @@ const AddTask = () => {
         <label>Titre :</label>
         <input
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={task.title}
+          onChange={(e) => setTask({ ...task, title: e.target.value })}
           required
         />
         <label>Description:</label>
         <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={task.description}
+          onChange={(e) => setTask({ ...task, description: e.target.value })}
         />
         <label>Priorité:</label>
         <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
+          value={task.priority}
+          onChange={(e) => setTask({ ...task, priority: e.target.value })}
           required
         >
           <option value="normale">Normale</option>

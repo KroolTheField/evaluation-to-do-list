@@ -1,18 +1,9 @@
-const initialState = {
-    tasks: [],
-};
+import { combineReducers } from 'redux';
+import tasksReducer from './tasksSlice';
 
-const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD_TASK':
-            return {
-                ...state,
-                tasks: [...state.tasks, action.payload],
-            };
-        // Add other cases for modifying, deleting, or validating tasks
-        default:
-            return state;
-    }
-};
+const rootReducer = combineReducers({
+  tasks: tasksReducer,
+  // potentiels autres reducers ici
+});
 
 export default rootReducer;
