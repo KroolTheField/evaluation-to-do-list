@@ -7,7 +7,7 @@ const TaskItem = ({ task }) => {
       <Link to={`/task/${task.id}`}>
         <h3>{task.title}</h3>
       </Link>
-      <p>{task.description}</p>
+      <p className='shortdescription'>{task.description}</p>
       <p>Priorité : {task.priority}</p>
       <p>État : {task.status}</p>
     </div>
