@@ -1,6 +1,11 @@
 /* CSS Reset*/
 *:not(script,head) {
   all: unset;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-size : max(15vh,100px);
 }
 
 html {
@@ -12,6 +17,8 @@ html {
     conic-gradient(from 90deg at 2px 2px,var(--_g)),
     conic-gradient(from 90deg at 1px 1px,var(--_g));
   background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+
+  overflow-y: scroll;
 }
 
 
@@ -21,17 +28,31 @@ h1 {
 }
 
 h2 {
+  margin-block: 1rem;
   display: block;
   font-size: 2rem;
-  text-shadow: 
-  2px 2px 0 grey,
-  4px 4px 2px darkgrey,
-  6px 6px 4px lightgrey
-  ;
+}
+
+p {
+  font-size: 1.2rem;
 }
 
 div, header {
   display: block;
+}
+
+header {
+  height: var(--header-size);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+header + div {
+  margin-top: var(--header-size);
+  margin-bottom: 100px;
+  margin-inline: 2rem;
 }
 
 a:hover {
@@ -40,7 +61,31 @@ a:hover {
   cursor: pointer;
 }
 
-/* ------ */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex: 1 1 0;
+}
+
+:is(input,textarea,select,button) {
+  border: solid 2px black;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 200ms;
+}
+
+input,textarea {
+  text-align: left;
+}
+
+:is(input,textarea,select,button):hover {
+  background: lightgrey;
+}
 
 .app {
   text-align: center;
@@ -53,11 +98,62 @@ header {
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
-nav li {
-  display: inline-block;
-  margin-right: 10px;
+h3 {
+  text-decoration: underline;
+  font-size: 2rem;
+}
+
+.task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1 1 300px;
+  margin-inline: auto;
+  background-color: white;
+  border: solid 2px black;
+  padding: 50px;
+}
+
+header + div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+header + div > h2 {
+  flex: 1 0 100%;
+}
+
+.task a {
+  flex: 1 0 100%;
+}
+
+.task a + p {
+  flex: 1 0 100%;
+}
+
+.task * {
+  flex: 1 1 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  gap: 20px;
+
+  background-color: white;
+  border: solid 2px black;
+  padding: 20px;
+}
+
+:not(header) + div {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.164);
 }

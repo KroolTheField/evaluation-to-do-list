@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <header>
-      <h1>ToDo App</h1>
+      <h1>Liste des Tâches</h1>
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Accueil</Link>
           </li>
           <li>
-            <Link to="/add">Add Task</Link>
+            <Link to="/add">Ajouter une tâche</Link>
           </li>
         </ul>
       </nav>

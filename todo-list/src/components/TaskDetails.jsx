@@ -15,9 +15,11 @@ const TaskDetails = () => {
   return (
     <div>
       <h2>{task.title}</h2>
+      <div className='details'>
       <p>{task.description}</p>
-      <p>Priority: {task.priority}</p>
-      <p>Status: {task.status}</p>
+      <p>Priorité: {task.priority}</p>
+      <p>État : {task.status}</p>
+      </div>
     </div>
   );
 };

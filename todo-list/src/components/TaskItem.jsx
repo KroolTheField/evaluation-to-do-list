@@ -8,8 +8,8 @@ const TaskItem = ({ task }) => {
         <h3>{task.title}</h3>
       </Link>
       <p>{task.description}</p>
-      <p>Priority: {task.priority}</p>
-      <p>Status: {task.status}</p>
+      <p>Priorité : {task.priority}</p>
+      <p>État : {task.status}</p>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const AddTask = () => {
       title,
       description,
       priority,
-      status: 'in-progress',
+      status: 'En-cours',
       id: Date.now(), // This is a simple way to generate a unique ID
     };
     dispatch(addTask(newTask));
@@ -26,9 +26,9 @@ const AddTask = () => {
 
   return (
     <div>
-      <h2>Add New Task</h2>
+      <h2>Ajouter une nouvelle tâche</h2>
       <form onSubmit={handleSubmit}>
-        <label>Title:</label>
+        <label>Titre :</label>
         <input
           type="text"
           value={title}
@@ -40,18 +40,18 @@ const AddTask = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <label>Priority:</label>
+        <label>Priorité:</label>
         <select
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
           required
         >
-          <option value="normal">Normal</option>
-          <option value="important">Important</option>
-          <option value="urgent">Urgent</option>
-          <option value="very-urgent">Very Urgent</option>
+          <option value="normale">Normale</option>
+          <option value="importante">Importante</option>
+          <option value="urgente">Urgente</option>
+          <option value="très-urgente">Très Urgente</option>
         </select>
-        <button type="submit">Add Task</button>
+        <button type="submit">Ajouter la tâche</button>
       </form>
     </div>
   );

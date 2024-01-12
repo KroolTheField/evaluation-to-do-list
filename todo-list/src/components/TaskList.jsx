@@ -7,7 +7,7 @@ const TaskList = () => {
 
   return (
     <div>
-      <h2>ToDo List</h2>
+      <h2>Liste des Tâches à Effectuer</h2>
       {tasks.map((task) => (
         <TaskItem key={task.id} task={task} />
       ))}
