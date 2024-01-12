@@ -1,0 +1,63 @@
+/* CSS Reset*/
+*:not(script,head) {
+  all: unset;
+}
+
+html {
+  font-family: fantasy;
+  --s: 100px; /* control the size */
+  
+  --_g: #0000 90deg,rgb(144, 144, 144) 0;
+  background: 
+    conic-gradient(from 90deg at 2px 2px,var(--_g)),
+    conic-gradient(from 90deg at 1px 1px,var(--_g));
+  background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+}
+
+
+h1 {
+  display: block;
+  font-size: 3rem;
+}
+
+h2 {
+  display: block;
+  font-size: 2rem;
+  text-shadow: 
+  2px 2px 0 grey,
+  4px 4px 2px darkgrey,
+  6px 6px 4px lightgrey
+  ;
+}
+
+div, header {
+  display: block;
+}
+
+a:hover {
+  color: lightblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ------ */
+
+.app {
+  text-align: center;
+}
+
+header {
+  background-color: #333;
+  padding: 10px;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
